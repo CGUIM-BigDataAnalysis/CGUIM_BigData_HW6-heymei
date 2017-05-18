@@ -47,18 +47,77 @@
 載入使用資料們
 
 ``` r
-library(readr)
+library(data.table)
+car <- fread("~/Desktop/R Final/txt/car.txt" ,colClasses = "character")
+bike <- fread("~/Desktop/R Final/txt/bike.txt" ,colClasses = "character")
+police <- fread("~/Desktop/R Final/txt/police.txt" ,colClasses = "character")
+people <- fread("~/Desktop/R Final/opendata10512M030.csv",colClasses = "character" , skip = 1)
 ```
 
 資料處理與清洗
 --------------
 
-說明處理資料的步驟
+-   從台灣總人口數的表，清出只有台北市的資料，再去統整台北市各區域的人口數
+-   統計台北市各區域汽車偷竊次數
+-   統計台北市各區域自行車偷竊次數
+-   統計台北市各區域警察局量
 
 處理資料
 
 ``` r
-#這是R Code Chunk
+library(dplyr)
+```
+
+    ## -------------------------------------------------------------------------
+
+    ## data.table + dplyr code now lives in dtplyr.
+    ## Please library(dtplyr)!
+
+    ## -------------------------------------------------------------------------
+
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:data.table':
+    ## 
+    ##     between, first, last
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` r
+##人口表
+##people_taipei 只有台北市的人口資料
+##people_taipei_area 台北市各區域的總人口，男生人口，女生人口
+people_taipei <- people[grepl("臺北市",people$區域別),]
+people_taipei_area <- group_by(people_taipei,區域別) %>% summarise(people_total = sum(as.numeric(人口數)) , people_man = sum(as.numeric(`人口數-男`)) , people_woman = sum(as.numeric(`人口數-女`)))
+people_taipei_area$地區 <- substr(people_taipei_area$區域別 , start = 4 , stop = 6)
+
+##汽車偷竊
+##cartotal 台北市各區域汽車偷竊次數
+car$地區 <- substr(car$`發生(現)地點`,start = 4,stop = 6)
+cartotal <- group_by(car,地區) %>% summarise(carnumber = n())
+
+##自行車偷竊
+##biketotal 台北市各區域自行車偷竊次數
+bike$地區 <- substr(bike$`發生(現)地點` , start = 4 , stop = 6) 
+biketotal <- group_by(bike,地區) %>% summarise(bikenumber = n())
+
+##警察局
+##台北市各區域警察局總數
+police$地區 <- substr(police$poi_addr , start = 4 , stop = 6)
+policetotal <-  group_by(police,地區) %>% summarise(policenumber = n())
+
+##資料結合
+##merge3 有台北市各區域總人口、男生人口數、女生人口數、汽車發生偷竊次數、自行車發生偷竊次數、警察局總數
+merge1 <- full_join(people_taipei_area,cartotal,by="地區")
+merge2 <- full_join(merge1,biketotal,by="地區")
+merge3 <- full_join(merge2,policetotal,by="地區")
 ```
 
 探索式資料分析
