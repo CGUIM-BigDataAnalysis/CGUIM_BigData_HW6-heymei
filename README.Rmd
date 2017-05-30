@@ -1,5 +1,5 @@
 ---
-title: "台北市"
+title: "台北市竊盜事件探討"
 output: github_document
 ---
 
@@ -116,8 +116,8 @@ merge3 <- full_join(merge2,policetotal,by="地區")
 #這是R Code Chunk
 
 # install.packages("showtext")
-# library(showtext)
-# showtext.auto(enable = TRUE)
+ library(showtext)
+ showtext.auto(enable = TRUE)
 library(ggplot2)
 merge3<-mutate(merge3, "竊盗總數"=carnumber+bikenumber)
 merge3
@@ -144,7 +144,13 @@ cov(merge3$竊盗總數, merge3$policenumber) #共變異數的絕對值皆<2,線
 qplot(carnumber+bikenumber, policenumber, data = merge3, main = "各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量") 
 qplot(bikenumber+carnumber, people_total, data = merge3, main = "各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數") #相關性亦是分散的
 
-#steal.car
+steal.car1<-steal.car[,c(2,4,6)]
+steal.car1<- group_by(steal.car1, 地區)%>%
+            mutate("竊盗總數"= n())
+steal.car1<- steal.car1[!duplicated(steal.car1[, c("發生時段", "地區")]),] 
+
+# qplot(竊盗總數, policenumber, data = steal.car1, main = "各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量") 
+# qplot(竊盗總數, people_total, data = steal.car1, main = "各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數") #相關性亦是分散的
 
 ```
 
