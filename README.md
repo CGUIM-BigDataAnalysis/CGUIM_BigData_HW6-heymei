@@ -1,4 +1,4 @@
-台北市
+台北市竊盜事件探討
 ================
 
 作業說明 （繳交時請直接刪除這個章節）
@@ -130,8 +130,13 @@ merge3 <- full_join(merge2,policetotal,by="地區")
 #這是R Code Chunk
 
 # install.packages("showtext")
-# library(showtext)
-# showtext.auto(enable = TRUE)
+library(showtext)
+```
+
+    ## Loading required package: sysfonts
+
+``` r
+showtext.auto(enable = TRUE)
 library(ggplot2)
 merge3<-mutate(merge3, "竊盗總數"=carnumber+bikenumber)
 merge3
@@ -165,22 +170,6 @@ summary(merge3$bikenumber)
 ``` r
 hist.bike<-merge3$bikenumber
 names(hist.bike)<-merge3$地區
-barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140))
-```
-
-![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
-
-``` r
-shapiro.test(merge3$bikenumber) #不服從常態分配
-```
-
-    ## 
-    ##  Shapiro-Wilk normality test
-    ## 
-    ## data:  merge3$bikenumber
-    ## W = 0.84993, p-value = 0.03664
-
-``` r
 summary(merge3$carnumber)
 ```
 
@@ -188,85 +177,82 @@ summary(merge3$carnumber)
     ##   41.00   44.50   55.00   64.25   73.50  142.00
 
 ``` r
-hist.bike<-merge3$carnumber
-names(hist.bike)<-merge3$地區
-barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5)
+hist.car<-merge3$carnumber
+names(hist.car)<-merge3$地區
+x.par <- par(mfrow = c(1,2))
+barplot(hist.car, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5)
+barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140))
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
 ``` r
-#車被竊盗的量比自行車的量多出2-3倍
-shapiro.test(merge3$carnumber) #不服從常態分配
+par(x.par)
+#車被竊盗的量比自行車的量多出2-3倍 
+
+shapiro.test(merge3$竊盗總數)  
 ```
 
     ## 
     ##  Shapiro-Wilk normality test
     ## 
-    ## data:  merge3$carnumber
-    ## W = 0.77457, p-value = 0.004885
+    ## data:  merge3$竊盗總數
+    ## W = 0.78156, p-value = 0.005825
 
 ``` r
-cor(merge3$bikenumber, merge3$policenumber)
-```
-
-    ## [1] 0.05191303
-
-``` r
-cov(merge3$bikenumber, merge3$policenumber) 
-```
-
-    ## [1] 1.590909
-
-``` r
-cor(merge3$carnumber, merge3$policenumber)
-```
-
-    ## [1] 0.001722828
-
-``` r
-cov(merge3$carnumber, merge3$policenumber) 
-```
-
-    ## [1] 0.1363636
-
-``` r
-cor(merge3$竊盗總數, merge3$policenumber) #相關係數皆趨近於零，線性關係很底。
+#不服從常態分配
+cor(merge3$竊盗總數, merge3$policenumber) 
 ```
 
     ## [1] 0.02131421
 
 ``` r
-cov(merge3$竊盗總數, merge3$policenumber) #共變異數的絕對值皆<2,線性關係很弱。
+#各區警察局的數量與竊盗總數的相關係數皆趨近於零，線性關係很底。
+cov(merge3$竊盗總數, merge3$policenumber) 
 ```
 
     ## [1] 1.727273
 
 ``` r
+#各區警察局的數量與竊盗總數的共變異數的絕對值皆<2,線性關係很弱。
+
 qplot(carnumber+bikenumber, policenumber, data = merge3, main = "各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量") 
+```
+
+![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
+
+``` r
+qplot(bikenumber+carnumber, people_total, data = merge3, main = "各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數") 
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-3.png)
 
 ``` r
-qplot(bikenumber+carnumber, people_total, data = merge3, main = "各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數") #相關性亦是分散的
+#可見人口與警察局的多寡不防礙竊盜的發生
+
+steal.car<- rbind(car,bike)
+steal.car1<-steal.car[,c(2,4,6)]
+steal.car1<- group_by(steal.car1, 地區)%>%
+            mutate("竊盗總數"= n())
+steal.car2<- steal.car1[!duplicated(steal.car1[, c("發生時段", "地區", "案類")]),] 
+
+library(lattice)
+qplot(地區, data = steal.car, main="各區域竊盜事件數")
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-4.png)
 
 ``` r
-#steal.car
+# 大安區與北投區發生竊盗事件最高。
 ```
 
 期末專題分析規劃
 ----------------
 
-期末專題要做XXOOO交叉分析
+期末專題要做台北市竊盜分析
 
-分析規劃
+試着分析車與自行車被竊量的差異的原因 假設： 竊盗車的成功率比車高 車的比較能吸引竊盗者 大家丟失自行車不一定會去報案
 
-假設：竊盜事件
+各區的竊盗事件發生不均，試着以各區的收入水平作考量； 以竊盗地點作分析（該地點的特徵，如集中在學校附近） 假設： 收入水平較高的地區竊盗事件較多 特定場所會增加竊盗的發生
 
-警察局和攝影機是否足夠
-
-人口與竊盜事件的發生是否相關 竊盗事件的發生與警察局的位置是否相關， 假設：1. 透過搬移或多蓋警察局是否能減底竊盜事件的發生 竊盗事件的發生與道路攝影機的擺放數量是否有關， 假設：2. 攝影機能幫助減底竊盗事件的發生。 假設：3. 能加快迫查的時間（需要做前後對比，單尾檢定XD～！）
+探討能減底竊盗事件的因素： 假設： 人口密度能防礙竊盗發生 攝影機數能防礙竊盗發生
