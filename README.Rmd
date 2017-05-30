@@ -62,6 +62,7 @@ output: github_document
 
 載入使用資料們
 ```{r}
+#install.packages("data.table")
 library(data.table)
 car <- fread("~/Desktop/R Final/txt/car.txt" ,colClasses = "character")
 bike <- fread("~/Desktop/R Final/txt/bike.txt" ,colClasses = "character")
@@ -90,7 +91,7 @@ people_taipei_area$地區 <- substr(people_taipei_area$區域別 , start = 4 , s
 ##汽車偷竊
 ##cartotal 台北市各區域汽車偷竊次數
 car$地區 <- substr(car$`發生(現)地點`,start = 4,stop = 6)
-cartotal <- group_by(car,地區) %>% summarise(carnumber = n())
+cartotal <- group_by(car,地區) %>% summarise(carnumber = n()) #地區&時段
 
 ##自行車偷竊
 ##biketotal 台北市各區域自行車偷竊次數
@@ -113,7 +114,52 @@ merge3 <- full_join(merge2,policetotal,by="地區")
 圖文並茂圖文並茂
 ```{r}
 #這是R Code Chunk
+
+# install.packages("showtext")
+# library(showtext)
+# showtext.auto(enable = TRUE)
+library(ggplot2)
+merge3<-mutate(merge3, "竊盗總數"=carnumber+bikenumber)
+merge3
+summary(merge3$bikenumber)
+hist.bike<-merge3$bikenumber
+names(hist.bike)<-merge3$地區
+barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140))
+shapiro.test(merge3$bikenumber) #不服從常態分配
+
+summary(merge3$carnumber)
+hist.bike<-merge3$carnumber
+names(hist.bike)<-merge3$地區
+barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5)
+#車被竊盗的量比自行車的量多出2-3倍
+shapiro.test(merge3$carnumber) #不服從常態分配
+
+cor(merge3$bikenumber, merge3$policenumber)
+cov(merge3$bikenumber, merge3$policenumber) 
+cor(merge3$carnumber, merge3$policenumber)
+cov(merge3$carnumber, merge3$policenumber) 
+cor(merge3$竊盗總數, merge3$policenumber) #相關係數皆趨近於零，線性關係很底。
+cov(merge3$竊盗總數, merge3$policenumber) #共變異數的絕對值皆<2,線性關係很弱。
+
+qplot(carnumber+bikenumber, policenumber, data = merge3, main = "各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量") 
+qplot(bikenumber+carnumber, people_total, data = merge3, main = "各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數") #相關性亦是分散的
+
+#steal.car
+
 ```
 
 ## 期末專題分析規劃
 期末專題要做XXOOO交叉分析
+
+分析規劃
+
+假設：竊盜事件
+
+警察局和攝影機是否足夠
+
+人口與竊盜事件的發生是否相關
+竊盗事件的發生與警察局的位置是否相關，
+                假設：1. 透過搬移或多蓋警察局是否能減底竊盜事件的發生
+竊盗事件的發生與道路攝影機的擺放數量是否有關，
+                假設：2. 攝影機能幫助減底竊盗事件的發生。
+                假設：3. 能加快迫查的時間（需要做前後對比，單尾檢定XD～！）   

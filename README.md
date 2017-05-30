@@ -47,6 +47,7 @@
 載入使用資料們
 
 ``` r
+#install.packages("data.table")
 library(data.table)
 car <- fread("~/Desktop/R Final/txt/car.txt" ,colClasses = "character")
 bike <- fread("~/Desktop/R Final/txt/bike.txt" ,colClasses = "character")
@@ -101,7 +102,7 @@ people_taipei_area$地區 <- substr(people_taipei_area$區域別 , start = 4 , s
 ##汽車偷竊
 ##cartotal 台北市各區域汽車偷竊次數
 car$地區 <- substr(car$`發生(現)地點`,start = 4,stop = 6)
-cartotal <- group_by(car,地區) %>% summarise(carnumber = n())
+cartotal <- group_by(car,地區) %>% summarise(carnumber = n()) #地區&時段
 
 ##自行車偷竊
 ##biketotal 台北市各區域自行車偷竊次數
@@ -127,9 +128,145 @@ merge3 <- full_join(merge2,policetotal,by="地區")
 
 ``` r
 #這是R Code Chunk
+
+# install.packages("showtext")
+# library(showtext)
+# showtext.auto(enable = TRUE)
+library(ggplot2)
+merge3<-mutate(merge3, "竊盗總數"=carnumber+bikenumber)
+merge3
+```
+
+    ## # A tibble: 12 × 9
+    ##          區域別 people_total people_man people_woman   地區 carnumber
+    ##           <chr>        <dbl>      <dbl>        <dbl>  <chr>     <int>
+    ## 1  臺北市中山區       231247     107850       123397 中山區        50
+    ## 2  臺北市中正區       160403      76610        83793 中正區        65
+    ## 3  臺北市信義區       227823     108923       118900 信義區        73
+    ## 4  臺北市內湖區       287733     137619       150114 內湖區        43
+    ## 5  臺北市北投區       257370     124186       133184 北投區        85
+    ## 6  臺北市南港區       122516      59907        62609 南港區        45
+    ## 7  臺北市士林區       289939     140011       149928 士林區        42
+    ## 8  臺北市大同區       130071      63469        66602 大同區        52
+    ## 9  臺北市大安區       311506     145617       165889 大安區       142
+    ## 10 臺北市文山區       275231     132153       143078 文山區        75
+    ## 11 臺北市松山區       208326      97953       110373 松山區        41
+    ## 12 臺北市萬華區       193539      95212        98327 萬華區        58
+    ## # ... with 3 more variables: bikenumber <int>, policenumber <int>,
+    ## #   竊盗總數 <int>
+
+``` r
+summary(merge3$bikenumber)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##    7.00    9.75   14.00   17.42   21.25   44.00
+
+``` r
+hist.bike<-merge3$bikenumber
+names(hist.bike)<-merge3$地區
+barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140))
+```
+
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
+
+``` r
+shapiro.test(merge3$bikenumber) #不服從常態分配
+```
+
+    ## 
+    ##  Shapiro-Wilk normality test
+    ## 
+    ## data:  merge3$bikenumber
+    ## W = 0.84993, p-value = 0.03664
+
+``` r
+summary(merge3$carnumber)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##   41.00   44.50   55.00   64.25   73.50  142.00
+
+``` r
+hist.bike<-merge3$carnumber
+names(hist.bike)<-merge3$地區
+barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5)
+```
+
+![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
+
+``` r
+#車被竊盗的量比自行車的量多出2-3倍
+shapiro.test(merge3$carnumber) #不服從常態分配
+```
+
+    ## 
+    ##  Shapiro-Wilk normality test
+    ## 
+    ## data:  merge3$carnumber
+    ## W = 0.77457, p-value = 0.004885
+
+``` r
+cor(merge3$bikenumber, merge3$policenumber)
+```
+
+    ## [1] 0.05191303
+
+``` r
+cov(merge3$bikenumber, merge3$policenumber) 
+```
+
+    ## [1] 1.590909
+
+``` r
+cor(merge3$carnumber, merge3$policenumber)
+```
+
+    ## [1] 0.001722828
+
+``` r
+cov(merge3$carnumber, merge3$policenumber) 
+```
+
+    ## [1] 0.1363636
+
+``` r
+cor(merge3$竊盗總數, merge3$policenumber) #相關係數皆趨近於零，線性關係很底。
+```
+
+    ## [1] 0.02131421
+
+``` r
+cov(merge3$竊盗總數, merge3$policenumber) #共變異數的絕對值皆<2,線性關係很弱。
+```
+
+    ## [1] 1.727273
+
+``` r
+qplot(carnumber+bikenumber, policenumber, data = merge3, main = "各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量") 
+```
+
+![](README_files/figure-markdown_github/unnamed-chunk-3-3.png)
+
+``` r
+qplot(bikenumber+carnumber, people_total, data = merge3, main = "各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數") #相關性亦是分散的
+```
+
+![](README_files/figure-markdown_github/unnamed-chunk-3-4.png)
+
+``` r
+#steal.car
 ```
 
 期末專題分析規劃
 ----------------
 
 期末專題要做XXOOO交叉分析
+
+分析規劃
+
+假設：竊盜事件
+
+警察局和攝影機是否足夠
+
+人口與竊盜事件的發生是否相關 竊盗事件的發生與警察局的位置是否相關， 假設：1. 透過搬移或多蓋警察局是否能減底竊盜事件的發生 竊盗事件的發生與道路攝影機的擺放數量是否有關， 假設：2. 攝影機能幫助減底竊盗事件的發生。 假設：3. 能加快迫查的時間（需要做前後對比，單尾檢定XD～！）
