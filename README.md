@@ -125,28 +125,7 @@ library(showtext)
 showtext.auto(enable = TRUE)
 library(ggplot2)
 merge3<-mutate(merge3, "竊盗總數"=carnumber+bikenumber)
-merge3
-```
 
-    ## # A tibble: 12 × 9
-    ##          區域別 people_total people_man people_woman   地區 carnumber
-    ##           <chr>        <dbl>      <dbl>        <dbl>  <chr>     <int>
-    ## 1  臺北市中山區       231247     107850       123397 中山區        50
-    ## 2  臺北市中正區       160403      76610        83793 中正區        65
-    ## 3  臺北市信義區       227823     108923       118900 信義區        73
-    ## 4  臺北市內湖區       287733     137619       150114 內湖區        43
-    ## 5  臺北市北投區       257370     124186       133184 北投區        85
-    ## 6  臺北市南港區       122516      59907        62609 南港區        45
-    ## 7  臺北市士林區       289939     140011       149928 士林區        42
-    ## 8  臺北市大同區       130071      63469        66602 大同區        52
-    ## 9  臺北市大安區       311506     145617       165889 大安區       142
-    ## 10 臺北市文山區       275231     132153       143078 文山區        75
-    ## 11 臺北市松山區       208326      97953       110373 松山區        41
-    ## 12 臺北市萬華區       193539      95212        98327 萬華區        58
-    ## # ... with 3 more variables: bikenumber <int>, policenumber <int>,
-    ## #   竊盗總數 <int>
-
-``` r
 summary(merge3$bikenumber)
 ```
 
@@ -174,7 +153,7 @@ barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各�
 
 ``` r
 par(x.par)
-#車被竊盗的量比自行車的量多出2-3倍 
+#車被竊盗的量比自行車的量高出很多 
 
 shapiro.test(merge3$竊盗總數)  
 ```
@@ -202,27 +181,29 @@ cov(merge3$竊盗總數, merge3$policenumber)
 ``` r
 #各區警察局的數量與竊盗總數的共變異數的絕對值皆<2,線性關係很弱。
 
-qplot(carnumber+bikenumber, policenumber, data = merge3, main = "各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量") 
-```
-
-![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
-
-``` r
-qplot(bikenumber+carnumber, people_total, data = merge3, main = "各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數") 
-```
-
-![](README_files/figure-markdown_github/unnamed-chunk-3-3.png)
-
-``` r
-#可見人口與警察局的多寡不防礙竊盜的發生
-
 steal.car<- rbind(car,bike)
 steal.car1<-steal.car[,c(2,4,6)]
 steal.car1<- group_by(steal.car1, 地區)%>%
             mutate("竊盗總數"= n())
 steal.car2<- steal.car1[!duplicated(steal.car1[, c("發生時段", "地區", "案類")]),] 
+steal.car2 <- full_join(steal.car2,policetotal,by="地區")
+steal.car2 <- full_join(steal.car2, people_taipei_area[, c(2,5)],by="地區")
+#取得各區在某時段的竊盗總數、總人口數、警察局數
 
-library(lattice)
+qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段)
+```
+
+![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
+
+``` r
+qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段)
+```
+
+![](README_files/figure-markdown_github/unnamed-chunk-3-3.png)
+
+``` r
+#可見人口與警察局的多寡不防礙竊盜的發生，竊盗發生的時間沒有集中的趨勢
+
 qplot(地區, data = steal.car, main="各區域竊盜事件數")
 ```
 

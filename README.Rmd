@@ -106,7 +106,6 @@ library(showtext)
 showtext.auto(enable = TRUE)
 library(ggplot2)
 merge3<-mutate(merge3, "竊盗總數"=carnumber+bikenumber)
-merge3
 
 summary(merge3$bikenumber)
 hist.bike<-merge3$bikenumber
@@ -118,7 +117,7 @@ x.par <- par(mfrow = c(1,2))
 barplot(hist.car, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5)
 barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140))
 par(x.par)
-#車被竊盗的量比自行車的量多出2-3倍 
+#車被竊盗的量比自行車的量高出很多 
 
 shapiro.test(merge3$竊盗總數)  
 #不服從常態分配
@@ -127,17 +126,19 @@ cor(merge3$竊盗總數, merge3$policenumber)
 cov(merge3$竊盗總數, merge3$policenumber) 
 #各區警察局的數量與竊盗總數的共變異數的絕對值皆<2,線性關係很弱。
 
-qplot(carnumber+bikenumber, policenumber, data = merge3, main = "各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量") 
-qplot(bikenumber+carnumber, people_total, data = merge3, main = "各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數") 
-#可見人口與警察局的多寡不防礙竊盜的發生
-
 steal.car<- rbind(car,bike)
 steal.car1<-steal.car[,c(2,4,6)]
 steal.car1<- group_by(steal.car1, 地區)%>%
             mutate("竊盗總數"= n())
 steal.car2<- steal.car1[!duplicated(steal.car1[, c("發生時段", "地區", "案類")]),] 
+steal.car2 <- full_join(steal.car2,policetotal,by="地區")
+steal.car2 <- full_join(steal.car2, people_taipei_area[, c(2,5)],by="地區")
+#取得各區在某時段的竊盗總數、總人口數、警察局數
 
-library(lattice)
+qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段)
+qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段)
+#可見人口與警察局的多寡不防礙竊盜的發生，竊盗發生的時間沒有集中的趨勢
+
 qplot(地區, data = steal.car, main="各區域竊盜事件數")
 # 大安區與北投區發生竊盗事件最高。
 ```
