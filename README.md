@@ -123,6 +123,7 @@ library(showtext)
 
 ``` r
 showtext.auto(enable = TRUE)
+
 library(ggplot2)
 merge3<-mutate(merge3, "竊盗總數"=carnumber+bikenumber)
 
@@ -190,13 +191,13 @@ steal.car2 <- full_join(steal.car2,policetotal,by="地區")
 steal.car2 <- full_join(steal.car2, people_taipei_area[, c(2,5)],by="地區")
 #取得各區在某時段的竊盗總數、總人口數、警察局數
 
-qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段)
+qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段) 
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
 
 ``` r
-qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段)
+qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab =    "總人口數", color = 發生時段) 
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-3.png)
