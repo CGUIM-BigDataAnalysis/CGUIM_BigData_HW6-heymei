@@ -191,18 +191,21 @@ steal.car2 <- full_join(steal.car2,policetotal,by="地區")
 steal.car2 <- full_join(steal.car2, people_taipei_area[, c(2,5)],by="地區")
 #取得各區在某時段的竊盗總數、總人口數、警察局數
 
+par(font.axis = 2)
+par(font.lab = 2)
 qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段) 
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
 
 ``` r
-qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab =    "總人口數", color = 發生時段) 
+qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段)
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-3.png)
 
 ``` r
+#+theme(text=element_text(family="wqy-microhei", size=10))
 #可見人口與警察局的多寡不防礙竊盜的發生，竊盗發生的時間沒有集中的趨勢
 
 qplot(地區, data = steal.car, main="各區域竊盜事件數")
