@@ -146,8 +146,8 @@ summary(merge3$carnumber)
 hist.car<-merge3$carnumber
 names(hist.car)<-merge3$地區
 x.par <- par(mfrow = c(1,2))
-barplot(hist.car, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5)
-barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140))
+barplot(hist.car, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5, family = "HanziPen TC Regular")
+barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140), family = "HanziPen TC Regular")
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
@@ -193,23 +193,2966 @@ steal.car2 <- full_join(steal.car2, people_taipei_area[, c(2,5)],by="地區")
 
 par(font.axis = 2)
 par(font.lab = 2)
-qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段) 
+qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段)+theme(text=element_text(family = "HanziPen TC Regular", size=12))
 ```
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-2.png)
 
 ``` r
-qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段)
+qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段) +theme(text=element_text(family = "HanziPen TC Regular", size=12))
 ```
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-3.png)
 
 ``` r
-#+theme(text=element_text(family="wqy-microhei", size=10))
 #可見人口與警察局的多寡不防礙竊盜的發生，竊盗發生的時間沒有集中的趨勢
 
-qplot(地區, data = steal.car, main="各區域竊盜事件數")
+qplot(地區, data = steal.car, main="各區域竊盜事件數")+theme(text=element_text(family = "HanziPen TC Regular", size=12))
 ```
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
+
+    ## Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x
+    ## $y, : font family 'HanziPen TC Regular' not found, will use 'wqy-microhei'
+    ## instead
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-4.png)
 
