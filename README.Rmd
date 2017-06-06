@@ -54,8 +54,9 @@ car <- fread("~/Desktop/R Final/txt/car.txt" ,colClasses = "character")
 bike <- fread("~/Desktop/R Final/txt/bike.txt" ,colClasses = "character")
 police <- fread("~/Desktop/R Final/txt/police.txt" ,colClasses = "character")
 people <- fread("~/Desktop/R Final/opendata10512M030.csv",colClasses = "character" , skip = 1)
-
-
+land <- fread("~/Desktop/R Final/opendata105N010.csv",colClasses = "character" , skip = 1)
+camera <- fread("~/Desktop/R Final/1041008.csv",colClasses = "character")
+school <- fread("~/Desktop/R Final/txt/1050113臺北市各級學校分布圖%2528含國小_國中_高中職_特教學校_市立大學%25291030730+%281%29.txt",colClasses = "character")
 ```
 
 ## 資料處理與清洗
@@ -89,11 +90,41 @@ biketotal <- group_by(bike,地區) %>% summarise(bikenumber = n())
 police$地區 <- substr(police$poi_addr , start = 4 , stop = 6)
 policetotal <-  group_by(police,地區) %>% summarise(policenumber = n())
 
+##人口密度
+##land_taipei 臺北市資料
+land_taipei <- land[grepl("臺北市",land$區域別),]
+land_taipei$地區 <- substr(land_taipei$區域別 , start = 4 , stop = 6)
+land_taipei_need <-land_taipei[,c(5,6)]
+
+##監視器
+##
+camera_need <- camera[,c(3,5)]
+camera_need$precinct <- substr(camera_need$precinct , start = 1 , stop = 2)
+camera_need$地區 <- ifelse(camera_need$precinct=="",yes="",no = paste0(camera_need$precinct,"區"))
+camera_need <- camera_need[!precinct==""]
+freq_location_taipei<-camera_need[,.N,by = 地區]
+colnames(freq_location_taipei) <- c("地區","camera_number")
+
+##學校
+school[grepl('中崙高中',school_name)]$address <- "臺北市松山區八德路四段101號"
+school[grepl('中崙高中',school_name)]$address <- iconv(school[grepl('中崙高中',school_name)]$address,"utf-8","utf-8")
+school$地區 <- substr(school$address , start = 4 , stop = 6)
+school_total <- school[,.N,by = "地區"]
+colnames(school_total) <- c("地區","school_number")
+
+#以學校層級分
+school_byschool <- school[,.N,by = school]
+colnames(school_byschool) <- c("school","school_number")
+
+
 ##資料結合
 ##merge3 有台北市各區域總人口、男生人口數、女生人口數、汽車發生偷竊次數、自行車發生偷竊次數、警察局總數
 merge1 <- full_join(people_taipei_area,cartotal,by="地區")
 merge2 <- full_join(merge1,biketotal,by="地區")
 merge3 <- full_join(merge2,policetotal,by="地區")
+merge4 <- full_join(merge3,land_taipei_need,by="地區")
+merge5 <- merge(merge4,freq_location_taipei,by="地區")
+merge6 <- full_join(merge5,school_total,by="地區")
 ```
 
 ## 探索式資料分析
