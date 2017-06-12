@@ -136,7 +136,6 @@ colnames(school_total) <- c("地區","school_number")
 school_byschool <- school[,.N,by = school]
 colnames(school_byschool) <- c("school","school_number")
 
-
 ##資料結合
 ##merge3 有台北市各區域總人口、男生人口數、女生人口數、汽車發生偷竊次數、自行車發生偷竊次數、警察局總數
 merge1 <- full_join(people_taipei_area,cartotal,by="地區")
@@ -151,8 +150,8 @@ merge6 <- full_join(merge5,school_total,by="地區")
 圖文並茂圖文並茂
 ```{r}
 #這是R Code Chunk
-
 # install.packages("showtext")
+library(dplyr)
 library(showtext)
 showtext.auto(enable = TRUE)
 
@@ -166,8 +165,8 @@ summary(merge3$carnumber)
 hist.car<-merge3$carnumber
 names(hist.car)<-merge3$地區
 x.par <- par(mfrow = c(1,2))
-barplot(hist.car, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5, family = "HanziPen TC Regular")
-barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140), family = "HanziPen TC Regular")
+barplot(hist.car, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5)
+barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140))
 par(x.par)
 #車被竊盗的量比自行車的量高出很多 
 
@@ -183,17 +182,35 @@ steal.car1<-steal.car[,c(2,4,6)]
 steal.car1<- group_by(steal.car1, 地區)%>%
             mutate("竊盗總數"= n())
 steal.car2<- steal.car1[!duplicated(steal.car1[, c("發生時段", "地區", "案類")]),] 
-steal.car2 <- full_join(steal.car2,policetotal,by="地區")
-steal.car2 <- full_join(steal.car2, people_taipei_area[, c(2,5)],by="地區")
+steal.car2 <- full_join(steal.car2,policetotal,by="地區") %>%
+              full_join(people_taipei_area[, c(2,5)],by="地區")
 #取得各區在某時段的竊盗總數、總人口數、警察局數
+#-------------------------------
+steal.car3 <- full_join(steal.car2, merge6[,c('地區','人口密度')], by="地區") %>%
+              full_join(merge6[,c('地區','camera_number')], by="地區") %>%
+              full_join(merge6[,c('地區','school_number')], by="地區")
+qplot(竊盗總數, camera_number, data = steal.car3, main="各區域竊盜事件數與監視器相關性",xlab = "竊盜事件數", ylab = "監視器數量")
+qplot(竊盗總數, school_number, data = steal.car3, main="各區域竊盜事件數與學校數相關性",xlab = "竊盜事件數", ylab = "學校數量")
+qplot(竊盗總數, 人口密度, data = steal.car3, main="各區域竊盜事件數與人口密度相關性",xlab = "竊盜事件數", ylab = "人口密度")
 
-par(font.axis = 2)
-par(font.lab = 2)
-qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段)+theme(text=element_text(family = "HanziPen TC Regular", size=12))
-qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段) +theme(text=element_text(family = "HanziPen TC Regular", size=12))
+cor(steal.car3$竊盗總數, as.numeric(steal.car3$人口密度)) #獨立
+cov(steal.car3$竊盗總數, as.numeric(steal.car3$人口密度)) #正相關
+
+cor(steal.car3$竊盗總數, steal.car3$camera_number) #　0.39
+cov(steal.car3$竊盗總數, steal.car3$camera_number) #正相關
+
+cor(steal.car3$竊盗總數, steal.car3$school_number) #  0.41
+cov(steal.car3$竊盗總數, steal.car3$school_number) #正相關
+
+#-------------------------------
+qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段)
+#+theme(text=element_text(family = "HanziPen TC Regular", size=12))
+qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段) 
+#+theme(text=element_text(family = "HanziPen TC Regular", size=12))
 #可見人口與警察局的多寡不防礙竊盜的發生，竊盗發生的時間沒有集中的趨勢
-
-qplot(地區, data = steal.car, main="各區域竊盜事件數")+theme(text=element_text(family = "HanziPen TC Regular", size=12))
+ 
+qplot(地區, data = steal.car, main="各區域竊盜事件數")
+#+theme(text=element_text(family = "HanziPen TC Regular", size=12))
 # 大安區與北投區發生竊盗事件最高。
 ```
 
