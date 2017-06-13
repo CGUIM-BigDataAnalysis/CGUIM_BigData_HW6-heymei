@@ -3,7 +3,7 @@ install.packages('sf')
 library(sf)
 library(maptools)
 library(rgdal)
-area <- rgdal::readOGR("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/CCTV/CCTV.shp")
+area <- readShapePoly("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/CCTV/CCTV.shp")
 
 
 library(corrplot)
