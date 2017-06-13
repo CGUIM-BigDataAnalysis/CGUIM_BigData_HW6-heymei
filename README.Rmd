@@ -67,13 +67,13 @@ output: github_document
 ```{r}
 #install.packages("data.table")
 library(data.table)
-car <- fread("~/Desktop/R Final/txt/car.txt" ,colClasses = "character")
-bike <- fread("~/Desktop/R Final/txt/bike.txt" ,colClasses = "character")
-police <- fread("~/Desktop/R Final/txt/police.txt" ,colClasses = "character")
-people <- fread("~/Desktop/R Final/opendata10512M030.csv",colClasses = "character" , skip = 1)
-land <- fread("~/Desktop/R Final/opendata105N010.csv",colClasses = "character" , skip = 1)
-camera <- fread("~/Desktop/R Final/1041008.csv",colClasses = "character")
-school <- fread("~/Desktop/R Final/txt/1050113臺北市各級學校分布圖%2528含國小_國中_高中職_特教學校_市立大學%25291030730+%281%29.txt",colClasses = "character")
+car <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/car.txt" ,colClasses = "character")
+bike <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/bike.txt" ,colClasses = "character")
+police <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/police.txt" ,colClasses = "character")
+people <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/opendata10512M030.csv",colClasses = "character" , skip = 1)
+land <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/opendata105N010.csv",colClasses = "character" , skip = 1)
+camera <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/1041008.csv",colClasses = "character")
+school <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/1050113臺北市各級學校分布圖%2528含國小_國中_高中職_特教學校_市立大學%25291030730+%281%29.txt",colClasses = "character")
 ```
 
 ## 資料處理與清洗
@@ -152,8 +152,8 @@ merge6 <- full_join(merge5,school_total,by="地區")
 #這是R Code Chunk
 # install.packages("showtext")
 library(dplyr)
-library(showtext)
-showtext.auto(enable = TRUE)
+##library(showtext)
+##showtext.auto(enable = TRUE)
 
 library(ggplot2)
 merge3<-mutate(merge3, "竊盗總數"=carnumber+bikenumber)
@@ -212,6 +212,19 @@ qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件
 qplot(地區, data = steal.car, main="各區域竊盜事件數")
 #+theme(text=element_text(family = "HanziPen TC Regular", size=12))
 # 大安區與北投區發生竊盗事件最高。
+
+
+
+merge6_1 <- merge6[,(3:11)]
+merge6_1$carnumber <- as.numeric(merge6_1$carnumber)
+merge6_1$bikenumber <- as.numeric(merge6_1$bikenumber)
+merge6_1$policenumber <- as.numeric(merge6_1$policenumber)
+merge6_1$人口密度 <- as.numeric(merge6_1$人口密度)
+merge6_1$camera_number <- as.numeric(merge6_1$camera_number)
+merge6_1$school_number <- as.numeric(merge6_1$school_number)
+library(corrplot)
+M <- cor(merge6_1,method="kendall") 
+cor_properties <- corrplot(M, method = 'number',order ="hclust", tl.col="black", tl.cex = 1, tl.offset = 1, tl.srt = 40)
 ```
 
 ## 期末專題分析規劃
