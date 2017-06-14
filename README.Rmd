@@ -283,6 +283,79 @@ library(corrplot)
 M <- cor(merge6_1,method="kendall") 
 cor_properties <- corrplot(M, method = 'number',order ="hclust", tl.col="black", tl.cex = 1, tl.offset = 1, tl.srt = 40)
 ```
+```{r}
+library("RJSONIO")
+geocodeAdddress <- function(address) {
+  require(RJSONIO)
+  url <- "http://maps.google.com/maps/api/geocode/json?address="
+  url <- URLencode(paste(url, address, "&sensor=false", sep = ""))
+  x <- fromJSON(url, simplify = FALSE)
+  if (x$status == "OK") {
+    out <- c(x$results[[1]]$geometry$location$lng,
+             x$results[[1]]$geometry$location$lat)
+  } else {
+    out <- NA
+  }
+  Sys.sleep(0.2)  # API only allows 5 requests per second
+  out
+}
+#geocodeAdddress("臺北市大安區龍淵里和平東路2段94號")
+#geocodeAdddress("Time Square, New York City")
+```
+
+```{r}
+library(httr)
+library(RCurl)
+library(XML)
+library(bitops)
+library(dplyr)
+
+# Google map 地址轉經緯度
+geoPoint = function(address, verbose=FALSE) {
+  #若未輸入地址, return錯誤
+  if(verbose) cat(address,"\n")
+  root = "http://maps.google.com/maps/api/geocode/"
+  #Google編碼為UTF8, 中文要轉碼後帶入URL才會正確
+  # address = iconv(address,"big5","utf8")
+  #POI API型態(XML or JSON)
+  return.call = "xml"
+  sensor = "false"
+  #產生URL
+  url_gen = paste(root, return.call, "?address=", address, "&sensor=", sensor, sep = "")
+  #擷取網頁原始碼
+  html_code = xmlParse(url_gen)
+  #若status為OK抓取資料, 若不為OK return status
+  if(xpathSApply(html_code,"//GeocodeResponse//status",xmlValue)=="OK") {
+    lat = xpathSApply(html_code,"//result//geometry//location//lat",xmlValue)
+    lng = xpathSApply(html_code,"//result//geometry//location//lng",xmlValue)
+    loc_type = xpathSApply(html_code,"//result//geometry//location_type",xmlValue)
+    return(cbind(lat, lng, loc_type, address))
+  } else {
+    return(paste("Status:", xpathSApply(html_code,"//GeocodeResponse//status",xmlValue), sep = " "))
+  }
+}
+
+# Demo example
+
+addr <- c(camera$location[1:100,])
+
+res <- list()
+for(i in 1:length(addr)){
+  point <- geoPoint(addr[i])
+  res[[i]] <- data.frame(point)
+  cat(i, as.matrix(point)[1,], "\n")
+  Sys.sleep(0.1)
+}
+
+tmp <- do.call(rbind, res) # 如果沒有查詢失敗可以無痛合併
+distinct(tmp, address) # 移除相同地址多筆經緯度 (直接取第一筆)
+
+```
+
+
+
+
+
 
 ## 期末專題分析規劃
 期末專題要做台北市竊盜分析
