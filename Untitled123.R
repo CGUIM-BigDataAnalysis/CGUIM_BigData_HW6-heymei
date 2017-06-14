@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 library(ggplot2) 
 library(rgdal)#for fortify()
 library(rgeos) #for fortify()
@@ -55,6 +56,17 @@ twcmap
 
 
 
+=======
+
+library(ggplot2)
+library(rgdal)
+<<<<<<< HEAD
+library(rgeos)
+library(maptools)
+Sys.setlocale(category = "LC_ALL", locale = "cht")
+area <- readShapeSpatial("~/R/CGUIM_BigData_HW6-heymei/R Final/CCTV/CCTV.shp")
+area.df <- fortify(area , region = "are")
+>>>>>>> e9ad2d790e7f44e9588f48ed99e68a1802535ee1
 
 library(jsonlite)
 library(RCurl)
@@ -65,6 +77,7 @@ WaterDataFrame$latitude<-as.numeric(WaterDataFrame$latitude)
 WaterDataFrame$qua_cntu<-as.numeric(WaterDataFrame$qua_cntu)
 WaterDataClean<-WaterDataFrame[WaterDataFrame$qua_cntu>=0,]
 head(WaterDataClean)
+<<<<<<< HEAD
 library(ggmap)
 TaipeiMap <- get_map(
   location = c(121.43,24.93,121.62,25.19), 
@@ -82,5 +95,24 @@ TaipeiMapO
 
 
 
+=======
 
+mydata <- data.frame(e = area$E , n = area$N)
+
+=======
+area <- readShapePoly("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/CCTV/CCTV.shp")
+>>>>>>> origin/master
+>>>>>>> e9ad2d790e7f44e9588f48ed99e68a1802535ee1
+
+library(ggmap)
+TaipeiMap <- get_map(
+  location = c(121.43,24.93,121.62,25.19), 
+  zoom = 14, maptype = 'roadmap')
+TaipeiMapO <- ggmap(TaipeiMap)+ 
+  geom_point(data=mydata, 
+             aes(x=mydata$e, y=mydata$n,size=0.0001))+ 
+  scale_color_continuous(
+    low = "yellow",high = "red")+ 
+  guides(size=FALSE)
+TaipeiMapO
 
