@@ -1,6 +1,7 @@
 
 library(ggplot2)
 library(rgdal)
+<<<<<<< HEAD
 library(rgeos)
 library(maptools)
 Sys.setlocale(category = "LC_ALL", locale = "cht")
@@ -19,6 +20,9 @@ head(WaterDataClean)
 
 mydata <- data.frame(e = area$E , n = area$N)
 
+=======
+area <- readShapePoly("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/CCTV/CCTV.shp")
+>>>>>>> origin/master
 
 library(ggmap)
 TaipeiMap <- get_map(
