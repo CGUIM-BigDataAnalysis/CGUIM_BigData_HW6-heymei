@@ -74,6 +74,8 @@ people <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/opendata105
 land <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/opendata105N010.csv",colClasses = "character" , skip = 1)
 camera <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/1041008.csv",colClasses = "character")
 school <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/1050113臺北市各級學校分布圖%2528含國小_國中_高中職_特教學校_市立大學%25291030730+%281%29.txt",colClasses = "character")
+detection_rate <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/ss10101cm2017614235576.txt",colClasses = "character")
+average_income <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R FInal/txt/台北各區家戶平均所得.txt",colClasses = "character")
 ```
 
 ## 資料處理與清洗
@@ -98,17 +100,17 @@ people_taipei_area$地區 <- substr(people_taipei_area$區域別 , start = 4 , s
 ##汽車偷竊
 ##cartotal 台北市各區域汽車偷竊次數
 car$地區 <- substr(car$`發生(現)地點`,start = 4,stop = 6)
-cartotal <- group_by(car,地區) %>% summarise(carnumber = n()) #地區&時段
+car_total <- group_by(car,地區) %>% summarise(carnumber = n()) #地區&時段
 
 ##自行車偷竊
 ##biketotal 台北市各區域自行車偷竊次數
 bike$地區 <- substr(bike$`發生(現)地點` , start = 4 , stop = 6) 
-biketotal <- group_by(bike,地區) %>% summarise(bikenumber = n())
+bike_total <- group_by(bike,地區) %>% summarise(bikenumber = n())
 
 ##警察局
 ##台北市各區域警察局總數
 police$地區 <- substr(police$poi_addr , start = 4 , stop = 6)
-policetotal <-  group_by(police,地區) %>% summarise(policenumber = n())
+police_station_total <-  group_by(police,地區) %>% summarise(policenumber = n())
 
 ##人口密度
 ##land_taipei 臺北市資料
@@ -136,14 +138,29 @@ colnames(school_total) <- c("地區","school_number")
 school_byschool <- school[,.N,by = school]
 colnames(school_byschool) <- c("school","school_number")
 
+##破案率
+detection_rate <- detection_rate[c(1:180),]
+detection_rate$分區 <- substr(detection_rate$分局 , start = 1 , stop = 2)
+detection_rate_need <- group_by(detection_rate,分區) %>% summarise(區域 = n() , 發生數 = sum(as.numeric(`發生數(件)`)) , 破獲數 = sum(as.numeric(`破獲數(件)`)))
+detection_rate_need$破案率 <- round(detection_rate_need$破獲數/detection_rate_need$發生數,digits = 2)
+detection_rate_need <- detection_rate_need[c(1:12),]
+detection_rate_need$地區 <- paste0(detection_rate_need$分區,"區")
+detection_rate_need <- detection_rate_need[,c(3:6)]
+
+
+##平均所得
+average_income$所得 <- as.numeric(average_income$所得)*1000
+
 ##資料結合
 ##merge3 有台北市各區域總人口、男生人口數、女生人口數、汽車發生偷竊次數、自行車發生偷竊次數、警察局總數
-merge1 <- full_join(people_taipei_area,cartotal,by="地區")
-merge2 <- full_join(merge1,biketotal,by="地區")
-merge3 <- full_join(merge2,policetotal,by="地區")
+merge1 <- full_join(people_taipei_area,car_total,by="地區")
+merge2 <- full_join(merge1,bike_total,by="地區")
+merge3 <- full_join(merge2,police_station_total,by="地區")
 merge4 <- full_join(merge3,land_taipei_need,by="地區")
 merge5 <- merge(merge4,freq_location_taipei,by="地區")
 merge6 <- full_join(merge5,school_total,by="地區")
+merge7 <- merge(merge6,detection_rate_need,by="地區")
+merge8 <- merge(merge7,average_income,by="地區")
 ```
 
 ## 探索式資料分析
@@ -165,9 +182,20 @@ summary(merge3$carnumber)
 hist.car<-merge3$carnumber
 names(hist.car)<-merge3$地區
 x.par <- par(mfrow = c(1,2))
-barplot(hist.car, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5)
-barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140))
+barplot(hist.car, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5 ,family = "HanziPen TC Regular")
+barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140),family = "HanziPen TC Regular")
 par(x.par)
+
+##ggplot()+geom_bar(data=hist.car ,
+                  ##aes(x=as.numeric(hist.car),y=as.numeric(camera_number)),
+                  ##stat = "identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "竊盜事件數" , y = "監視器數量" , title = "各區域竊盜事件數與監視器相關性")
+
+##ggplot()+geom_bar(data=hist.bike ,
+                  ##aes(x=as.numeric(hist.bike),y=as.numeric(camera_number)),
+                  ##stat = "identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "竊盜事件數" , y = "監視器數量" , title = "各區域竊盜事件數與監視器相關性")
+
+
+
 #車被竊盗的量比自行車的量高出很多 
 
 shapiro.test(merge3$竊盗總數)  
@@ -189,9 +217,24 @@ steal.car2 <- full_join(steal.car2,policetotal,by="地區") %>%
 steal.car3 <- full_join(steal.car2, merge6[,c('地區','人口密度')], by="地區") %>%
               full_join(merge6[,c('地區','camera_number')], by="地區") %>%
               full_join(merge6[,c('地區','school_number')], by="地區")
-qplot(竊盗總數, camera_number, data = steal.car3, main="各區域竊盜事件數與監視器相關性",xlab = "竊盜事件數", ylab = "監視器數量")
-qplot(竊盗總數, school_number, data = steal.car3, main="各區域竊盜事件數與學校數相關性",xlab = "竊盜事件數", ylab = "學校數量")
-qplot(竊盗總數, 人口密度, data = steal.car3, main="各區域竊盜事件數與人口密度相關性",xlab = "竊盜事件數", ylab = "人口密度")
+
+ggplot()+geom_point(data=steal.car3 ,
+                  aes(x=as.numeric(竊盗總數),y=as.numeric(camera_number)),
+                  stat = "identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "竊盜事件數" , y = "監視器數量" , title = "各區域竊盜事件數與監視器相關性")
+
+ggplot()+geom_point(data=steal.car3 ,
+                  aes(x=as.numeric(竊盗總數),y=as.numeric(school_number)),
+                  stat = "identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "竊盜事件數" , y = "學校數量" , title = "各區域竊盜事件數與學校數相關性")
+
+ggplot()+geom_point(data=steal.car3 ,
+                  aes(x=as.numeric(竊盗總數),y=as.numeric(人口密度)),
+                  stat = "identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "竊盜事件數" , y = "人口密度" , title = "各區域竊盜事件數與人口密度相關性")
+
+
+
+##qplot(竊盗總數, camera_number, data = steal.car3, main="各區域竊盜事件數與監視器相關性",xlab = "c", ylab = "監視器數量")+theme(text=element_text(family = "HanziPen TC Regular", size=12))
+##qplot(竊盗總數, school_number, data = steal.car3, main="各區域竊盜事件數與學校數相關性",xlab = "竊盜事件數", ylab = "學校數量")+theme(text=element_text(family = "HanziPen TC Regular", size=12))
+q##plot(竊盗總數, 人口密度, data = steal.car3, main="各區域竊盜事件數與人口密度相關性",xlab = "竊盜事件數", ylab = as.numeric("人口密度"))+theme(text=element_text(family = "HanziPen TC Regular", size=12))
 
 cor(steal.car3$竊盗總數, as.numeric(steal.car3$人口密度)) #獨立
 cov(steal.car3$竊盗總數, as.numeric(steal.car3$人口密度)) #正相關
@@ -203,25 +246,25 @@ cor(steal.car3$竊盗總數, steal.car3$school_number) #  0.41
 cov(steal.car3$竊盗總數, steal.car3$school_number) #正相關
 
 #-------------------------------
-qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段)
-#+theme(text=element_text(family = "HanziPen TC Regular", size=12))
-qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段) 
-#+theme(text=element_text(family = "HanziPen TC Regular", size=12))
+qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段)+theme(text=element_text(family = "HanziPen TC Regular", size=12))
+qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段) +theme(text=element_text(family = "HanziPen TC Regular", size=12))
 #可見人口與警察局的多寡不防礙竊盜的發生，竊盗發生的時間沒有集中的趨勢
  
-qplot(地區, data = steal.car, main="各區域竊盜事件數")
-#+theme(text=element_text(family = "HanziPen TC Regular", size=12))
 # 大安區與北投區發生竊盗事件最高。
+x.par <- par(mfrow = c(1,2))
+qplot(地區, data = steal.car[1:771,], main="各區域汽車竊盜事件數", ylim=c(0, 150))+theme(text=element_text(family = "HanziPen TC Regular", size=12))  #這是汽車
+qplot(地區, data = steal.car[771:980,], main="各區域自行車竊盜事件數", ylim=c(0, 150))+theme(text=element_text(family = "HanziPen TC Regular", size=12))  #這是自行車
+par(x.par)
 
 
-
-merge6_1 <- merge6[,(3:11)]
+merge6_1 <- merge6[,c(3:11)]
 merge6_1$carnumber <- as.numeric(merge6_1$carnumber)
 merge6_1$bikenumber <- as.numeric(merge6_1$bikenumber)
 merge6_1$policenumber <- as.numeric(merge6_1$policenumber)
-merge6_1$人口密度 <- as.numeric(merge6_1$人口密度)
+merge6_1$people_density <- as.numeric(merge6_1$人口密度)
 merge6_1$camera_number <- as.numeric(merge6_1$camera_number)
 merge6_1$school_number <- as.numeric(merge6_1$school_number)
+merge6_1 <- merge6_1[,c(1,2,3,4,5,6,8,9,10)]
 library(corrplot)
 M <- cor(merge6_1,method="kendall") 
 cor_properties <- corrplot(M, method = 'number',order ="hclust", tl.col="black", tl.cex = 1, tl.offset = 1, tl.srt = 40)
