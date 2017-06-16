@@ -76,6 +76,7 @@ camera <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/1041008.csv
 school <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/1050113臺北市各級學校分布圖%2528含國小_國中_高中職_特教學校_市立大學%25291030730+%281%29.txt",colClasses = "character")
 detection_rate <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/ss10101cm2017614235576.txt",colClasses = "character")
 average_income <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R FInal/txt/台北各區家戶平均所得.txt",colClasses = "character")
+camera_new <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/台北各分局的管核的監視器.txt",colClasses = "character" , skip = 1)
 ```
 
 ## 資料處理與清洗
@@ -151,7 +152,10 @@ detection_rate_need <- detection_rate_need[,c(3:6)]
 ##平均所得
 average_income$所得 <- as.numeric(average_income$所得)*1000
 
-##c
+##完整camera資料
+camera_new$地區 <- paste0(substr(camera_new$所屬單位 , start = 1 , stop = 2),"區")
+camera_new_need <- camera_new[,c(1,3,5)]
+camera_new_need_statistics <- group_by(camera_new_need,地區) %>% summarise(camera_new_number = n())
 
 ##資料結合
 ##merge3 有台北市各區域總人口、男生人口數、女生人口數、汽車發生偷竊次數、自行車發生偷竊次數、警察局總數
@@ -163,6 +167,45 @@ merge5 <- merge(merge4,freq_location_taipei,by="地區")
 merge6 <- full_join(merge5,school_total,by="地區")
 merge7 <- merge(merge6,detection_rate_need,by="地區")
 merge8 <- merge(merge7,average_income,by="地區")
+merge9 <- merge(merge8,camera_new_need_statistics,by="地區")
+```
+
+
+```{r}
+##0616
+
+library(dplyr)
+library(ggplot2)
+library(corrplot)
+merge9$steal_total <- merge9$carnumber+merge9$bikenumber
+merge9_correlation <- merge9[,c(3:17)]
+merge9_correlation$carnumber <- as.numeric(merge9_correlation$carnumber)
+merge9_correlation$bikenumber <- as.numeric(merge9_correlation$bikenumber)
+merge9_correlation$policenumber <- as.numeric(merge9_correlation$policenumber)
+merge9_correlation$density <- as.numeric(merge9_correlation$人口密度)
+merge9_correlation$camera_number <- as.numeric(merge9_correlation$camera_number)
+merge9_correlation$school_number <- as.numeric(merge9_correlation$school_number)
+merge9_correlation$camera_new_number <- as.numeric(merge9_correlation$camera_new_number)
+merge9_correlation$steal_total <- as.numeric(merge9_correlation$steal_total)
+merge9_correlation$number_of_occurrences <- as.numeric(merge9_correlation$發生數)
+merge9_correlation$Cracked_number <- as.numeric(merge9_correlation$破獲數)
+merge9_correlation$Detection_rate <- as.numeric(merge9_correlation$破案率)
+merge9_correlation$income <- as.numeric(merge9_correlation$所得)
+merge9_correlation_need <- merge9_correlation[c(1,2,3,4,5,6,8,9,14,15,16,17,18,19,20)]
+
+
+##steak_total & 分區
+ggplot()+geom_bar(data = merge9 ,aes(x=地區,y=carnumber),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "汽車竊盜次數" )
+ggplot()+geom_bar(data = merge9 ,aes(x=地區,y=bikenumber),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "自行車竊盜次數" )
+ggplot()+geom_bar(data = merge9 ,aes(x=地區,y=carnumber+bikenumber),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "竊盜次數" )
+ggplot()+geom_bar(data = merge9 ,aes(x=地區,y=as.numeric(人口密度)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "人口密度" )
+
+M <- cor(merge9_correlation_need,method="kendall") 
+cor_properties <- corrplot(M, method = 'circle',order ="hclust", tl.col="black", tl.cex = 1, tl.offset = 1, tl.srt = 40)
+
+
+
+
 ```
 
 ## 探索式資料分析
@@ -353,8 +396,6 @@ tmp <- do.call(rbind, res) # 如果沒有查詢失敗可以無痛合併
 distinct(tmp, address) # 移除相同地址多筆經緯度 (直接取第一筆)
 
 ```
-
-
 
 
 
