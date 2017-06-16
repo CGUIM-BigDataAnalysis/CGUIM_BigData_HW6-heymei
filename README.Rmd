@@ -151,6 +151,8 @@ detection_rate_need <- detection_rate_need[,c(3:6)]
 ##平均所得
 average_income$所得 <- as.numeric(average_income$所得)*1000
 
+##c
+
 ##資料結合
 ##merge3 有台北市各區域總人口、男生人口數、女生人口數、汽車發生偷竊次數、自行車發生偷竊次數、警察局總數
 merge1 <- full_join(people_taipei_area,car_total,by="地區")
@@ -182,13 +184,13 @@ summary(merge3$carnumber)
 hist.car<-merge3$carnumber
 names(hist.car)<-merge3$地區
 x.par <- par(mfrow = c(1,2))
-<<<<<<< HEAD
+
 barplot(hist.car, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5 ,family = "HanziPen TC Regular")
 barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140),family = "HanziPen TC Regular")
-=======
+
 barplot(hist.car, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5 , family = "HanziPen TC Regular")
 barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140) , family = "HanziPen TC Regular")
->>>>>>> e9ad2d790e7f44e9588f48ed99e68a1802535ee1
+
 par(x.par)
 
 ##ggplot()+geom_bar(data=hist.car ,
@@ -251,19 +253,19 @@ cor(steal.car3$竊盗總數, steal.car3$school_number) #  0.41
 cov(steal.car3$竊盗總數, steal.car3$school_number) #正相關
 
 #-------------------------------
-<<<<<<< HEAD
+
 qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段)+theme(text=element_text(family = "HanziPen TC Regular", size=12))
 qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段) +theme(text=element_text(family = "HanziPen TC Regular", size=12))
 #可見人口與警察局的多寡不防礙竊盜的發生，竊盗發生的時間沒有集中的趨勢
  
-=======
+
 qplot(竊盗總數, policenumber, data = steal.car2, main="各區域竊盜事件數與警察局的分佈相關性",xlab = "竊盜事件數", ylab = "警察局數量", color = 發生時段) +theme(text=element_text(family = "HanziPen TC Regular", size=12))
 
 qplot(竊盗總數, people_total, data = steal.car2, main="各區域竊盜事件數與總人口數相關性",xlab = "竊盜事件數", ylab = "總人口數", color = 發生時段) +theme(text=element_text(family = "HanziPen TC Regular", size=12))
 #可見人口與警察局的多寡不防礙竊盜的發生，竊盗發生的時間沒有集中的趨勢
  
 qplot(地區, data = steal.car, main="各區域竊盜事件數")+theme(text=element_text(family = "HanziPen TC Regular", size=12))
->>>>>>> e9ad2d790e7f44e9588f48ed99e68a1802535ee1
+
 # 大安區與北投區發生竊盗事件最高。
 x.par <- par(mfrow = c(1,2))
 qplot(地區, data = steal.car[1:771,], main="各區域汽車竊盜事件數", ylim=c(0, 150))+theme(text=element_text(family = "HanziPen TC Regular", size=12))  #這是汽車
