@@ -76,7 +76,7 @@ camera <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/1041008.csv
 school <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/1050113臺北市各級學校分布圖%2528含國小_國中_高中職_特教學校_市立大學%25291030730+%281%29.txt",colClasses = "character")
 detection_rate <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/ss10101cm2017614235576.txt",colClasses = "character")
 average_income <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R FInal/txt/台北各區家戶平均所得.txt",colClasses = "character")
-camera_new <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/台北各分局的管核的監視器.txt",colClasses = "character" , skip = 1)
+camera_new <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/台北各分局的管核的監視器.txt",colClasses = "character" , skip = 1)
 ```
 
 ## 資料處理與清洗
@@ -193,6 +193,7 @@ merge9_correlation$Detection_rate <- as.numeric(merge9_correlation$破案率)
 merge9_correlation$income <- as.numeric(merge9_correlation$所得)
 merge9_correlation_need <- merge9_correlation[c(1,2,3,4,5,6,8,9,14,15,16,17,18,19,20)]
 
+merge9_correlation_need <- merge9_correlation_need[c(1,6,8,9,10,11,12,13,14,15)]
 
 ##steak_total & 分區
 ggplot()+geom_bar(data = merge9 ,aes(x=地區,y=carnumber),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "汽車竊盜次數" )
@@ -200,9 +201,54 @@ ggplot()+geom_bar(data = merge9 ,aes(x=地區,y=bikenumber),stat="identity") +th
 ggplot()+geom_bar(data = merge9 ,aes(x=地區,y=carnumber+bikenumber),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "竊盜次數" )
 ggplot()+geom_bar(data = merge9 ,aes(x=地區,y=as.numeric(人口密度)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "人口密度" )
 
+##correlation
 M <- cor(merge9_correlation_need,method="kendall") 
 cor_properties <- corrplot(M, method = 'circle',order ="hclust", tl.col="black", tl.cex = 1, tl.offset = 1, tl.srt = 40)
 
+##CCTV數量 & 人口密度
+ggplot()+geom_point(data = merge9 ,aes(x=as.numeric(camera_new_number),y=as.numeric(破案率)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "CCTV數量" , y = "人口密度" )
+
+##CCTV數量 & 所得
+ggplot()+geom_point(data = merge9 ,aes(x=as.numeric(camera_new_number),y=as.numeric(所得)),stat="identity")+geom_smooth(data = merge9 , aes(x=as.numeric(camera_new_number),y=as.numeric(所得)),method = "lm") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "CCTV數量" , y = "平均收入" )
+
+##CCTV數量 & 所得
+ggplot()+geom_point(data = merge9 ,aes(x=as.numeric(camera_new_number),y=as.numeric(people_total)),stat="identity")+geom_smooth(data = merge9 , aes(x=as.numeric(camera_new_number),y=as.numeric(people_total)),method = "lm") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "CCTV數量" , y = "學校數量" )
+
+
+##bar圖 
+##地區與人口密度
+ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(人口密度)),y=as.numeric(人口密度)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "人口密度" )
+##地區與人口數
+ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(people_total)),y=as.numeric(people_total)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "人口數" )
+##地區與平均收入
+ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(所得)),y=as.numeric(所得)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "平均收入" )
+##地區與破案率
+ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(破案率)),y=as.numeric(破案率)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "破案率" )
+##地區與CCTV數量
+ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(camera_new_number)),y=as.numeric(camera_new_number)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "CCTV數量" )
+##地區與學校數目
+ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(school_number)),y=as.numeric(school_number)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "學校數目" )
+##地區與警察局
+ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(policenumber)),y=as.numeric(policenumber)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "警察局" )
+##地區與犯罪次數
+ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(發生數)),y=as.numeric(發生數)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "犯罪次數" )
+
+
+## TreeMap
+abc1 <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/ss10101ya201761650129.txt")
+abc2 <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/ss10101ya2017616502951.txt")
+abc1 <- abc1[c(1),]
+abc2 <- abc2[c(1),]
+library(treemap)
+library(reshape2)
+
+
+treemap(abc11,
+       index=c("variable"), #分組依據
+       vSize="value", #區塊大小
+       vColor="value", #顏色深淺
+       type="value",fontfamily.title = "HanziPen TC Regular" , fontfamily.labels = "HanziPen TC Regular" , title = "大安區刑事案件分類")
+abc3 <- rbind(abc1,abc2)
 
 
 
