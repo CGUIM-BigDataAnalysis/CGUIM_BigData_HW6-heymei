@@ -67,15 +67,15 @@ output: github_document
 ```{r}
 #install.packages("data.table")
 library(data.table)
-car <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/car.txt" ,colClasses = "character")
-bike <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/bike.txt" ,colClasses = "character")
-police <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/police.txt" ,colClasses = "character")
-people <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/opendata10512M030.csv",colClasses = "character" , skip = 1)
-land <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/opendata105N010.csv",colClasses = "character" , skip = 1)
-camera <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/1041008.csv",colClasses = "character")
-school <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/1050113臺北市各級學校分布圖%2528含國小_國中_高中職_特教學校_市立大學%25291030730+%281%29.txt",colClasses = "character")
-detection_rate <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R Final/txt/ss10101cm2017614235576.txt",colClasses = "character")
-average_income <- fread("~/Documents/GitHub/CGUIM_BigData_HW6-heymei/R FInal/txt/台北各區家戶平均所得.txt",colClasses = "character")
+car <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/car.txt" ,colClasses = "character")
+bike <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/bike.txt" ,colClasses = "character")
+police <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/police.txt" ,colClasses = "character")
+people <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/opendata10512M030.csv",colClasses = "character" , skip = 1)
+land <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/opendata105N010.csv",colClasses = "character" , skip = 1)
+camera <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/1041008.csv",colClasses = "character")
+school <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/1050113臺北市各級學校分布圖%2528含國小_國中_高中職_特教學校_市立大學%25291030730+%281%29.txt",colClasses = "character")
+detection_rate <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/ss10101cm2017614235576.txt",colClasses = "character")
+average_income <- fread("~/R/CGUIM_BigData_HW6-heymei/R FInal/txt/台北各區家戶平均所得.txt",colClasses = "character")
 camera_new <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/台北各分局的管核的監視器.txt",colClasses = "character" , skip = 1)
 ```
 
@@ -185,15 +185,15 @@ merge9_correlation$policenumber <- as.numeric(merge9_correlation$policenumber)
 merge9_correlation$density <- as.numeric(merge9_correlation$人口密度)
 merge9_correlation$camera_number <- as.numeric(merge9_correlation$camera_number)
 merge9_correlation$school_number <- as.numeric(merge9_correlation$school_number)
-merge9_correlation$camera_new_number <- as.numeric(merge9_correlation$camera_new_number)
+merge9_correlation$camera_number <- as.numeric(merge9_correlation$camera_new_number)
 merge9_correlation$steal_total <- as.numeric(merge9_correlation$steal_total)
 merge9_correlation$number_of_occurrences <- as.numeric(merge9_correlation$發生數)
 merge9_correlation$Cracked_number <- as.numeric(merge9_correlation$破獲數)
 merge9_correlation$Detection_rate <- as.numeric(merge9_correlation$破案率)
 merge9_correlation$income <- as.numeric(merge9_correlation$所得)
-merge9_correlation_need <- merge9_correlation[c(1,2,3,4,5,6,8,9,14,15,16,17,18,19,20)]
+merge9_correlation_need <- merge9_correlation[c(6,8,9,16,17,19,20)]
 
-merge9_correlation_need <- merge9_correlation_need[c(1,6,8,9,10,11,12,13,14,15)]
+##merge9_correlation_need <- ##merge9_correlation_need[c(1,6,8,9,10,11,12,13,14,15)]
 
 ##steak_total & 分區
 ggplot()+geom_bar(data = merge9 ,aes(x=地區,y=carnumber),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "汽車竊盜次數" )
@@ -235,20 +235,19 @@ ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(發生數)),y=a
 
 
 ## TreeMap
-abc1 <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/ss10101ya201761650129.txt")
-abc2 <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/ss10101ya2017616502951.txt")
-abc1 <- abc1[c(1),]
-abc2 <- abc2[c(1),]
 library(treemap)
 library(reshape2)
+abc1 <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/ss10101ya201761650129.txt")
+abc1 <- abc1[c(1),]
+abc12<-melt(abc1,id.vars = c())
+abc12 <- abc12[c(-2,-3,-4,-5,-14,-15,-30,-31,-32,-33,-34,-42,-43),]
 
-
-treemap(abc11,
+treemap(abc12,
        index=c("variable"), #分組依據
        vSize="value", #區塊大小
        vColor="value", #顏色深淺
        type="value",fontfamily.title = "HanziPen TC Regular" , fontfamily.labels = "HanziPen TC Regular" , title = "大安區刑事案件分類")
-abc3 <- rbind(abc1,abc2)
+
 
 
 
