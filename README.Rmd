@@ -67,6 +67,7 @@ output: github_document
 ```{r}
 #install.packages("data.table")
 library(data.table)
+library(readODS)
 car <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/car.txt" ,colClasses = "character")
 bike <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/bike.txt" ,colClasses = "character")
 police <- fread("~/R/CGUIM_BigData_HW6-heymei/R Final/txt/police.txt" ,colClasses = "character")
@@ -117,7 +118,7 @@ police_station_total <-  group_by(police,地區) %>% summarise(policenumber = n(
 ##land_taipei 臺北市資料
 land_taipei <- land[grepl("臺北市",land$區域別),]
 land_taipei$地區 <- substr(land_taipei$區域別 , start = 4 , stop = 6)
-land_taipei_need <-land_taipei[,c(5,6)]
+land_taipei_need <-land_taipei[,c(4,5,6)]
 
 ##監視器
 ##
@@ -157,6 +158,8 @@ camera_new$地區 <- paste0(substr(camera_new$所屬單位 , start = 1 , stop = 
 camera_new_need <- camera_new[,c(1,3,5)]
 camera_new_need_statistics <- group_by(camera_new_need,地區) %>% summarise(camera_new_number = n())
 
+
+
 ##資料結合
 ##merge3 有台北市各區域總人口、男生人口數、女生人口數、汽車發生偷竊次數、自行車發生偷竊次數、警察局總數
 merge1 <- full_join(people_taipei_area,car_total,by="地區")
@@ -168,6 +171,10 @@ merge6 <- full_join(merge5,school_total,by="地區")
 merge7 <- merge(merge6,detection_rate_need,by="地區")
 merge8 <- merge(merge7,average_income,by="地區")
 merge9 <- merge(merge8,camera_new_need_statistics,by="地區")
+
+
+##監視器密度
+merge9$camera_density <- as.numeric(merge9$camera_new_number)/as.numeric(merge9$土地面積)
 ```
 
 
@@ -178,7 +185,7 @@ library(dplyr)
 library(ggplot2)
 library(corrplot)
 merge9$steal_total <- merge9$carnumber+merge9$bikenumber
-merge9_correlation <- merge9[,c(3:17)]
+merge9_correlation <- merge9[,c(3:19)]
 merge9_correlation$carnumber <- as.numeric(merge9_correlation$carnumber)
 merge9_correlation$bikenumber <- as.numeric(merge9_correlation$bikenumber)
 merge9_correlation$policenumber <- as.numeric(merge9_correlation$policenumber)
@@ -190,8 +197,12 @@ merge9_correlation$steal_total <- as.numeric(merge9_correlation$steal_total)
 merge9_correlation$number_of_occurrences <- as.numeric(merge9_correlation$發生數)
 merge9_correlation$Cracked_number <- as.numeric(merge9_correlation$破獲數)
 merge9_correlation$Detection_rate <- as.numeric(merge9_correlation$破案率)
+merge9_correlation$land <- as.numeric(merge9_correlation$土地面積)
+
+
 merge9_correlation$income <- as.numeric(merge9_correlation$所得)
-merge9_correlation_need <- merge9_correlation[c(6,8,9,16,17,19,20)]
+merge9_correlation_need <- merge9_correlation[c(6,9,10,17,18,19,21,23)]
+merge9_correlation_need <- merge9_correlation_need[,c(-2)]
 
 ##merge9_correlation_need <- ##merge9_correlation_need[c(1,6,8,9,10,11,12,13,14,15)]
 
@@ -224,8 +235,8 @@ ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(people_total)),
 ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(所得)),y=as.numeric(所得)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "平均收入" )
 ##地區與破案率
 ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(破案率)),y=as.numeric(破案率)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "破案率" )
-##地區與CCTV數量
-ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(camera_new_number)),y=as.numeric(camera_new_number)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "CCTV數量" )
+##地區與CCTV密度
+ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(camera_density)),y=as.numeric(camera_density)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "CCTV平均密度" )
 ##地區與學校數目
 ggplot()+geom_bar(data = merge9 ,aes(x=reorder(地區,as.numeric(school_number)),y=as.numeric(school_number)),stat="identity") +theme(text=element_text(family="HanziPen TC Regular"))+labs(x = "地區" , y = "學校數目" )
 ##地區與警察局
@@ -247,6 +258,16 @@ treemap(abc12,
        vSize="value", #區塊大小
        vColor="value", #顏色深淺
        type="value",fontfamily.title = "HanziPen TC Regular" , fontfamily.labels = "HanziPen TC Regular" , title = "大安區刑事案件分類")
+
+
+
+
+
+
+
+
+
+
 
 
 
