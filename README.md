@@ -187,8 +187,8 @@ summary(merge3$carnumber)
 hist.car<-merge3$carnumber
 names(hist.car)<-merge3$地區
 x.par <- par(mfrow = c(1,2))
-barplot(hist.car, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5)
-barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5, ylim=c(0, 140))
+barplot(hist.car, xlab = "區域別", ylab = "次數", main ="自行車在各區被竊盗的次數",density=5)
+barplot(hist.bike, xlab = "區域別", ylab = "次數", main ="車在各區被竊盗的次數",density=5, ylim=c(0, 140))
 ```
 
 ![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)

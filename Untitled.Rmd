@@ -1,0 +1,35 @@
+---
+title: "camera_Data"
+output: html_document
+---
+
+```{r}
+##install.packages("readxl")
+#library(readxl)
+dataset_sheet1 <- read_excel("/Users/apple/Documents/RHW/CGUIM_BigData_HW6-heymei/file/台北各分局的管核的監視器.xlsx", skip = 1, sheet = 1)[, 2:3]
+dataset_sheet1$地區<- substr(dataset_sheet1$所屬單位, start = 1, stop = 2) %>%
+  paste("區", sep = '')
+
+dataset_sheet2 <- read_excel("/Users/apple/Documents/RHW/CGUIM_BigData_HW6-heymei/file/台北各分局的管核的監視器.xlsx", skip = 1, sheet = 2)[-98, 2:3]
+dataset_sheet2$地區 <- substr(dataset_sheet2$所屬單位, start = 1, stop = 2) %>%
+  paste("區", sep = '')
+dim(daase)
+
+dataset_sheet3 <- read_excel("/Users/apple/Documents/RHW/CGUIM_BigData_HW6-heymei/file/台北各分局的管核的監視器.xlsx", skip = 1, sheet = 3)[1:50, c(2,3,6)]
+
+
+
+```
+
+
+```{r}
+
+```
+
+## Including Plots
+
+
+
+```{r}
+
+```
